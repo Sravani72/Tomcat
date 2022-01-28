@@ -21,6 +21,11 @@
 			<version>3.3.2</version>
 			<type>maven-plugin</type>
 		</dependency>
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.9.1.2184</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -32,6 +37,20 @@
 		</plugins>
 		<finalName>tomcat</finalName>
 	</build>
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Optional URL to server. Default value is http://localhost:9000 -->
+				<sonar.host.url> http://localhost:9000 </sonar.host.url>
+				<sonar.login>admin</sonar.login>
+				<sonar.password>Katta#7211</sonar.password>
+			</properties>
+		</profile>
+	</profiles>
 </project>
 
 
